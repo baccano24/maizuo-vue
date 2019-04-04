@@ -1,15 +1,15 @@
 <template>
-  <div>
-    <div class="movie" v-for="movie of movieList" :key="movie.id">
-      <div class="avatar">
-        <img v-lazy="movie.img" />
-      </div>
-      <div class="wrap scale-1px">
-        <div class="desc">
+  <Scroll class="wrap_content">
+    <div>
+      <div class="movie" v-for="movie of movieList" :key="movie.id">
+        <div class="avatar">
+          <img v-lazy="movie.img">
+        </div>
+        <div class="wrap scale-1px">
+          <div class="desc">
             <div class="title">
               <span>{{ movie.nm }}</span>
-              <span class="iconfont icon-shijue3dimax" v-if="movie.version">
-          </span>
+              <span class="iconfont icon-shijue3dimax" v-if="movie.version"></span>
             </div>
             <div class="score">
               <span class="suffix">观众评</span>
@@ -17,32 +17,43 @@
             </div>
             <p class="actor">主演: {{ movie.star}}</p>
             <p class="show-info">{{ movie.showInfo }}</p>
+          </div>
+          <div class="btn">
+            <a href="javascript:;" class="go">购票</a>
+          </div>
         </div>
-        <div class="btn">
-          <a href="javascript:;" class="go">购票</a>
-        </div>
-      </div>   
+      </div>
     </div>
-  </div>
+  </Scroll>
 </template>
 // <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
-import {getHotMovies} from '@/api/home.js'
+import Scroll from "@/components/scroll/Scroll";
+import { getHotMovies } from "@/api/home.js";
 export default {
-  name: 'HotMovies',
-  data(){
+  name: "HotMovies",
+  data() {
     return {
       movieList: []
+    };
+  },
+  components:{
+    Scroll
+  },
+  methods: {
+    weekend(data) {
+      var day = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+      console.log(typeof date);
     }
   },
   activated() {
-    getHotMovies(res=>{
-      if(res.code==1){
-        this.movieList=res.data
+    getHotMovies(res => {
+      if (res.code == 1) {
+        this.movieList = res.data;
       }
-    })
-  },
-}
+    });
+  }
+};
 </script>
 
 <style lang="stylus" scoped>

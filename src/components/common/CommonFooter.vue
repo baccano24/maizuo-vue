@@ -1,9 +1,9 @@
 <template>
-  <div class="bottom">
+  <div class="bottom"  @click="show = !show">
     <div class="btn-item" v-for="(item,index) of itemList" :key="index">
       <router-link :to="item.href" :class="[bottomActive == index ? 'active' : '#ff5f16']">
         <span class="iconfont" :class="item.icon"></span>
-        <p>{{ item.title }}</p>
+          <p>{{ item.title }}</p>
       </router-link>
     </div>
   </div>
@@ -19,6 +19,7 @@ export default {
   },
   data() {
     return {
+      show: true,
       itemList: [
         {
           id: 0,

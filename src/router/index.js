@@ -6,6 +6,7 @@ import HotMovies from "@/pages/home/components/HotMovies"
 import My from "@/pages/my/My"
 import Cinema from "@/pages/cinema/Cinema"
 import Tehui from "@/pages/tehui/Tehui"
+import CityList from "@/pages/citylist/CityList"
 Vue.use(Router)
 
 export default new Router({
@@ -37,6 +38,11 @@ export default new Router({
       path:'/cinema',
       name:'Cinema',
       component:Cinema
+    },
+    {
+      path:'/citylist',
+      name:'CityList',
+      component:CityList
     }
   ]
 })

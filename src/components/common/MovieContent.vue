@@ -1,15 +1,12 @@
 <template>
   <div class="content">
-    <Scroll>
       <keep-alive>
         <component :is="currentComponent"></component>
       </keep-alive>
-    </Scroll>
   </div>
 </template>
 
 <script>
-import Scroll from "@/components/scroll/Scroll";
 import HotMovies from '@/pages/home/components/HotMovies'
 import ComingMovies from '@/pages/home/components/ComingMovies'
 export default {
@@ -21,9 +18,8 @@ export default {
     }
   },
   components: {
-    Scroll,
     HotMovies,
-    ComingMovies
+    ComingMovies,
   },
   computed: {
     currentComponent(){
