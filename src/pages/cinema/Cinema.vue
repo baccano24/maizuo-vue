@@ -8,15 +8,18 @@
       <label>全城</label>
       <label>理我最近</label>
     </div>
+    <CinemaContent class="cinema-content"/>
     <CommonFooter :bottom-active="bottomActive"/>
   </div>
 </template>
 
 <script>
+import CinemaContent from "@/pages/cinema/components/CinemaContent";
 import CommonFooter from "@/components/common/CommonFooter";
 export default {
   name: "Cinema",
   components: {
+    CinemaContent,
     CommonFooter
   },
   data() {
@@ -40,6 +43,10 @@ header {
   background: #fff;
   position: relative;
   border-bottom: 1px solid #eee;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  background: #fff;
 }
 header span {
   float: left;
@@ -54,13 +61,24 @@ header p {
   font-size: 17px;
   display: inherit;
 }
-.nav label{
-    width: 50%;
-    line-height: 50px;
-    font-size: 15px;
-    display: block;
-    float: left;
-    text-align: center;
-    border-bottom: 1px solid #eee;
+.nav {
+  z-index: 2;
+  background: #fff;
+  width: 100%;
+  position: fixed;
+  top: 50px;
+}
+.nav label {
+  width: 50%;
+  line-height: 50px;
+  font-size: 15px;
+  display: block;
+  float: left;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+.cinema-content {
+  position: absolute;
+  top: 100px;
 }
 </style>

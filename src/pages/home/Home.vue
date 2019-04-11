@@ -1,7 +1,9 @@
 <template>
   <div>
     <City />
+    <keep-alive>
     <Lunbotu class="lunbotu"/>
+    </keep-alive>
     <NavMenu :actived-menu-index="activedMenuIndex" @change="changeActiveMenuIndex"/>
     <MovieContent :menu-index="activedMenuIndex"/>
     <CommonFooter @click="show = !show"/>
